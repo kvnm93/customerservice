@@ -14,6 +14,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import javax.annotation.PostConstruct;
 import java.util.Optional;
+import java.util.UUID;
 
 @SpringBootApplication
 @EnableEurekaClient
@@ -69,6 +70,16 @@ public class CustomerService {
 
     public Customer getCustomerByUsername(String userName) {
         Optional<Customer> opt = customerRepository.findFirstByUserName(userName);
+
+        if (!opt.isPresent()) {
+            throw new IllegalStateException();
+        }
+
+        return opt.get();
+    }
+
+    public Customer getCustomerByCustomerId(UUID customerId) {
+        Optional<Customer> opt = customerRepository.findFirstByCustomerId(customerId);
 
         if (!opt.isPresent()) {
             throw new IllegalStateException();

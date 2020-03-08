@@ -11,4 +11,6 @@ public interface CustomerRepository extends CrudRepository<Customer, UUID> {
 
 
     public Optional<Customer> findFirstByUserName(String userName);
+
+    public Optional<Customer> findFirstByCustomerId(UUID customerId);
 }

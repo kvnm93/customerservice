@@ -6,6 +6,8 @@ import de.leuphana.customerservice.component.structure.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.UUID;
+
 @RestController
 public class CustomerServiceRestConnectorProvider {
 
@@ -15,5 +17,10 @@ public class CustomerServiceRestConnectorProvider {
     @GetMapping("/customer/")
     public Customer getCustomerByUsername(@RequestParam("username") String username) {
         return customerService.getCustomerByUsername(username);
+    }
+
+    @GetMapping("/customer/")
+    public Customer getCustomerByCustomerId(@RequestParam("customerId") UUID customerId) {
+        return customerService.getCustomerByCustomerId(customerId);
     }
 }
