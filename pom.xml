@@ -36,6 +36,9 @@
                         </configuration>
                     </execution>
                 </executions>
+                <configuration>
+                    <mainClass>de.leuphana.customerservice.component.behaviour.CustomerService</mainClass>
+                </configuration>
             </plugin>
         </plugins>
     </build>
