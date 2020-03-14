@@ -14,12 +14,14 @@ public class CustomerServiceRestConnectorProvider {
     @Autowired
     private CustomerService customerService;
 
+
     @GetMapping("/customer/")
     public Customer getCustomerByUsername(@RequestParam("username") String username) {
         return customerService.getCustomerByUsername(username);
     }
 
-    @GetMapping("/customer/")
+
+    @GetMapping("/customer/id/")
     public Customer getCustomerByCustomerId(@RequestParam("customerId") UUID customerId) {
         return customerService.getCustomerByCustomerId(customerId);
     }
